@@ -5,9 +5,10 @@ export default function Meme() {
     const [meme, setMeme] = React.useState({
         topText: "",
         bottomText: "",
-        image: "http://i.imgflip.com/1bij.jpg" ,
+        image: "http://i.imgflip.com/1bij.jpg",
     })
     const [allMemes, setAllMemes] = React.useState([])
+    const [fontSize, setFontSize] = React.useState(24)
 
     const takeScreenshot = () => {
         const element = document.getElementById('resMeme');
@@ -16,10 +17,9 @@ export default function Meme() {
             useCORS: true, //By passing this option in function Cross origin images will be rendered properly in the downloaded version of the PDF
             }).then((canvas) => {
             let image = canvas.toDataURL("image/jpeg");
-            console.log('the image is', image);
             const a = document.createElement('a');
             a.href = image;
-            a.download = 'Capture.jpeg';
+            a.download = `meme-${Math.floor(Math.random() * 10000).toString().padStart(4, '0')}.jpeg`;
             a.click();
 
         }).catch(err => {
@@ -60,8 +60,9 @@ export default function Meme() {
             image: url
         })) 
     }
-    
-    const exportRef = React.useRef();
+    function changeFontSize(event) {
+        setFontSize(event.target.value)
+    }
 
     return (
         <main>
@@ -87,6 +88,14 @@ export default function Meme() {
                     name="image"
                     onChange={imageUploaded}
                 />
+                <input
+                    type="range"
+                    name="fontSize"
+                    value={fontSize}
+                    min="20" max="100"
+                    step="1"
+                    onChange={changeFontSize}
+                />
                 <button 
                     className="form--button"
                     onClick={getMemeImage}
@@ -96,8 +105,8 @@ export default function Meme() {
             </div>
             <div className="meme" id="resMeme">
                 <img src={meme.image} className="meme--image" />
-                <h2 className="meme--text top">{meme.topText}</h2>
-                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+                <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text top">{meme.topText}</h2>
+                <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text bottom">{meme.bottomText}</h2>
             </div>
             <button onClick={takeScreenshot}>DOWNLOAD</button>
         </main>

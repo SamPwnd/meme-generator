@@ -56,15 +56,18 @@ main {
 
 .meme {
     position: relative;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
     &--image {
         max-width: 100%;
-        border-radius: 3px;
         display: block;
         margin-left: auto;
         margin-right: auto;
     }
     &--text {
         position: absolute;
+        word-wrap: break-word;
         width: 80%;
         text-align: center;
         left: 50%;
