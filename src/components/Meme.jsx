@@ -1,5 +1,8 @@
 import React from "react"
 import html2canvas from "html2canvas"
+import { Button } from 'actify'
+import { TextField } from "actify"
+
 
 export default function Meme() {
     const [meme, setMeme] = React.useState({
@@ -9,6 +12,7 @@ export default function Meme() {
     })
     const [allMemes, setAllMemes] = React.useState([])
     const [fontSize, setFontSize] = React.useState(24)
+    const fileInputRef = React.useRef(null)
 
     const takeScreenshot = () => {
         const element = document.getElementById('resMeme');
@@ -46,11 +50,15 @@ export default function Meme() {
     }
     
     function handleChange(event) {
+        if (!event.target) return
         const {name, value} = event.target
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
         }))
+    }
+    function handleUploadClick() {
+        fileInputRef.current.click()
     }
     function imageUploaded(event) {
         const url = URL.createObjectURL(event.target.files[0])
@@ -65,27 +73,34 @@ export default function Meme() {
     }
 
     return (
-        <main>
+        <main className="container mx-auto px-6">
             <div className="form">
-                <input 
+                <TextField 
+                    label="Top text"
+                    variant="outlined"
+                    autoComplete="off"
                     type="text"
-                    placeholder="Top text"
-                    className="form--input"
-                    name="topText"
                     value={meme.topText}
+                    name="topText"
                     onChange={handleChange}
                 />
-                <input 
+                <TextField 
+                    label="Bottom text"
+                    variant="outlined"
+                    autoComplete="off"
                     type="text"
-                    placeholder="Bottom text"
-                    className="form--input"
-                    name="bottomText"
                     value={meme.bottomText}
+                    name="bottomText"
                     onChange={handleChange}
                 />
+                <Button variant="elevated" onClick={handleUploadClick}>
+                    Use your base
+                </Button>
                 <input 
                     type="file"
                     name="image"
+                    style={{"display": "none"}}
+                    ref={fileInputRef}
                     onChange={imageUploaded}
                 />
                 <input
@@ -96,19 +111,20 @@ export default function Meme() {
                     step="1"
                     onChange={changeFontSize}
                 />
-                <button 
+                <Button 
+                    variant="elevated" color="primary"
                     className="form--button"
                     onClick={getMemeImage}
                 >
-                    Get a random meme base
-                </button>
+                    Get a random meme base 
+                </Button>
             </div>
             <div className="meme" id="resMeme">
                 <img src={meme.image} className="meme--image" />
                 <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text top">{meme.topText}</h2>
                 <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text bottom">{meme.bottomText}</h2>
             </div>
-            <button onClick={takeScreenshot}>DOWNLOAD</button>
+            <Button onClick={takeScreenshot}>DOWNLOAD</Button>
         </main>
     )
 }
