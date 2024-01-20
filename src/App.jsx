@@ -5,7 +5,7 @@ import './App.scss'
 
 export default function App() {
     return (
-        <div>
+        <div className="bg-background">
             <Header />
             <Meme />
         </div>
