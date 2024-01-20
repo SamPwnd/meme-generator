@@ -1,10 +1,7 @@
 import React from "react"
 import html2canvas from "html2canvas"
-import { Button } from 'actify'
-import { TextField } from "actify"
-import { Slider } from "actify"
-import { ArrowUpFromLine } from "lucide-react"
-import { Dices } from "lucide-react"
+import { Button, TextField, Slider } from 'actify'
+import { ArrowUpFromLine, Dices } from "lucide-react"
 
 export default function Meme() {
     const [meme, setMeme] = React.useState({
@@ -20,7 +17,7 @@ export default function Meme() {
         const element = document.getElementById('resMeme');
         if(!element) return;
         html2canvas(element, {
-            useCORS: true, //By passing this option in function Cross origin images will be rendered properly in the downloaded version of the PDF
+            useCORS: true,
             }).then((canvas) => {
             let image = canvas.toDataURL("image/jpeg");
             const a = document.createElement('a');
@@ -76,7 +73,7 @@ export default function Meme() {
 
     return (
         <main className="container sm:px-8 md:px-9 lg:px-32 px-3 my-8">
-            <div className="form mb-4 grid grid-rows-3 grid-cols-2 gap-5 bg-secondary/10 p-6 rounded-lg">
+            <div className="form mb-4 grid grid-rows-3 grid-cols-2 gap-4 bg-secondary/10 p-6 rounded-lg">
                 <TextField 
                     label="Top text"
                     variant="outlined"
@@ -109,7 +106,7 @@ export default function Meme() {
                     />
                 </div>
                 
-                <Button variant="elevated" onClick={handleUploadClick} className="row-span-1 col-span-1 p-4">
+                <Button variant="elevated" onClick={handleUploadClick} className="row-span-1 col-span-2 sm:col-span-1 p-4">
                     Use your base 
                     <ArrowUpFromLine size={24}/>
                 </Button>
@@ -123,7 +120,7 @@ export default function Meme() {
                 
                 <Button 
                     variant="elevated" color="primary"
-                    className="row-span-1 col-span-1 p-4"
+                    className="row-span-1 col-span-2 sm:col-span-1 p-4"
                     onClick={getMemeImage}
                 >
                     Random meme base 
@@ -137,8 +134,8 @@ export default function Meme() {
                     <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text top">{meme.topText}</h2>
                     <h2 style={{ fontSize: `${fontSize}px`}} className="meme--text bottom">{meme.bottomText}</h2>
                 </div>
-                <Button className="w-full mt-6" onClick={takeScreenshot}>DOWNLOAD MEME</Button>
             </div>
+            <Button className="w-full mt-4" onClick={takeScreenshot}>DOWNLOAD MEME</Button>
         
         </main>
     )

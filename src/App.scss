@@ -7,28 +7,23 @@
 }
 
 body {
-    font-family: "Karla", sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
-}
-
-main {
-    //padding: 64px 62px;
 }
 
 .header {
     display: flex;
     align-items: center;
     height: 65px;
-    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
-    color: white;
     padding: 20px;
     &--image {
         height: 100%;
         margin-right: 6px;
     }
     &--title {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         margin-right: auto;
+        font-weight: 600;
     }
 }
 
