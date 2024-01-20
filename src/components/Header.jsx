@@ -5,13 +5,13 @@ import { Github, BookUser } from "lucide-react"
 
 export default function Header() {
     return (
-        <header className="header bg-background text-primary shadow">
+        <header className="header sticky top-0 z-30 backdrop-blur bg-surface/25 text-primary shadow">
             <img 
                 src=""
                 className="header--image"
             />
             <h2 className="header--title">Meme Generator</h2>
-            <div className="flex flex-row gap-1">
+            <nav className="flex flex-row gap-1">
                 <ThemeSwitcher />
                 <a href="https://github.com/SamPwnd" target="_blank">
                     <IconButton>
@@ -23,7 +23,7 @@ export default function Header() {
                         <BookUser size={24} />
                     </IconButton>
                 </a>
-            </div>
+            </nav>
             
             
         </header>
