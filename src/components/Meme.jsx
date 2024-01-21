@@ -73,6 +73,7 @@ export default function Meme() {
 
     return (
         <main className="container sm:px-8 md:px-9 lg:px-32 px-3 py-8">
+            <p className="mb-3">A simple generator for top-bottom style memes</p>
             <div className="form mb-4 grid grid-rows-3 grid-cols-2 gap-4 bg-secondary/10 p-6 rounded-lg">
                 <TextField 
                     label="Top text"
