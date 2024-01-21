@@ -4,7 +4,7 @@ import { Sun, MoonStar } from "lucide-react";
 
 export default function ThemeSwitcher() {
     const [mode, setMode] = React.useState('') // dark mode
-
+console.log(mode)
     const initTheme = () => {
         if (
           localStorage.theme === 'dark' ||
@@ -82,7 +82,7 @@ export default function ThemeSwitcher() {
     
     return (
         <IconButton onClick={toggleTheme}>
-            {mode ? 
+            {mode==='dark' ? 
                 <Sun size={24} /> : 
                 <MoonStar  size={24} />
             }
