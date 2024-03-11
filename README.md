@@ -9,6 +9,15 @@ Welcome to the Meme Generator, a React Web App designed for creating top-bottom 
 - **Material Design 3:** Enjoy a sleek and intuitive user interface inspired by Google's latest design principles.
 - **Amplify Integration:** Benefit from the power of the Amplify library for seamless app functionality.
 
+## Technologies Used
+
+- React
+- Material Design 3
+- Tailwind
+- Amplify Library
+- Imgflip API
+- Lucide React
+  
 ## How to Use
 
 1. **Upload Your Meme Base:**
@@ -28,11 +37,3 @@ Welcome to the Meme Generator, a React Web App designed for creating top-bottom 
 
 At the moment, the Meme Generator does not include a sharing feature. You can, however, download your generated meme and share it manually on your preferred social media platforms.
 
-## Technologies Used
-
-- React
-- Material Design 3
-- Tailwind
-- Amplify Library
-- Imgflip API
-- Lucide React
