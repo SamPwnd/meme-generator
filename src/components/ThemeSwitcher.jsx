@@ -4,7 +4,6 @@ import { Sun, MoonStar } from "lucide-react";
 
 export default function ThemeSwitcher() {
     const [mode, setMode] = React.useState('') // dark mode
-console.log(mode)
     const initTheme = () => {
         if (
           localStorage.theme === 'dark' ||

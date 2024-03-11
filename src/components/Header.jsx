@@ -15,16 +15,13 @@ export default function Header() {
                             <Github size={24} />
                         </IconButton>
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://sampwnd.github.io/sam-devfolio/" target="_blank">
                         <IconButton>
                             <BookUser size={24} />
                         </IconButton>
                     </a>
                 </nav>
             </div>
-            
-            
-            
         </header>
     )
 }
