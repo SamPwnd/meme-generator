@@ -15,7 +15,7 @@ export default function Header() {
                             <Github size={24} />
                         </IconButton>
                     </a>
-                    <a href="https://sampwnd.github.io/sam-devfolio/" target="_blank">
+                    <a href="https://dev-samfolio.netlify.app/" target="_blank">
                         <IconButton>
                             <BookUser size={24} />
                         </IconButton>
